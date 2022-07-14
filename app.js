@@ -183,3 +183,34 @@ initButtons = () => {
 // call the functions
 initButtons();
 load();
+
+
+// An Array of colors
+const headerColor = ["SteelBlue", "Mediumvioletred", "Mediumaquamarine", "Mediumorchid", "Mistyrose", "Midnightblue", "Fuchsia", "HotPink", "Pink", "Lime", "BlueViolet", "Teal", "Brown", "Aquamarine", "Lightblue", "Blue", "Orange", "Yellow", "Purple", "Grey", "Lightblue", "Green", "Yellowgreen", "Pink", "Lawngreen", "Lightcoral"];
+const bgColors = ["linear-gradient(to left, rgb(234, 68, 7), rgb(0, 174, 222))", "linear-gradient(to right, rgb(234, 68, 7), rgb(0, 174, 222))", "linear-gradient(to right, rgb(140, 95, 18), rgb(0, 169, 55))", "linear-gradient(to left, rgb(140, 95, 18), rgb(0, 169, 55))", "linear-gradient(to left, rgb(5, 200, 66), rgb(12, 180, 44))", "linear-gradient(to right, rgb(5, 200, 66), rgb(12, 180, 44))", "linear-gradient(to right, rgb(40, 195, 72), rgb(66, 140, 78))", "linear-gradient(to left, rgb(40, 195, 72), rgb(66, 140, 78))", "linear-gradient(to left, rgb(16, 150, 71), rgb(42, 69, 155))", "linear-gradient(to right, rgb(16, 150, 71), rgb(42, 69, 155))"];
+
+// make a function that randomize the colors
+getRandomBgColor = () => {
+
+  // randomizes the colors
+  Math.floor(Math.random() * headerColor.length);
+  return Math.floor(Math.random() * bgColors.length);
+}
+
+document.querySelector('.next').addEventListener('click', () => {
+
+  // let randomBgColor equal the function above so onclick it calls it
+  let randomBgColor = getRandomBgColor();
+
+  //make the backgroud color = what ever the rgb numbers of bgColors
+  header.style.background = headerColor[randomBgColor];
+  document.body.style.background = bgColors[randomBgColor];
+});
+document.querySelector('.prev').addEventListener('click', () => {
+
+  let randomBgColor = getRandomBgColor();
+
+  header.style.background = headerColor[randomBgColor];
+  document.body.style.background = bgColors[randomBgColor]
+
+});
